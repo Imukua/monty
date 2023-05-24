@@ -7,6 +7,7 @@ opcode_func_t opcode_functions[] = {
     {"push", push},
     {"pall", pall},
 	{"pint", pint},
+	{"pop", pop},
 };
 
 /**
