@@ -4,6 +4,7 @@
 /* Include necessary headers */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* Define data structures */
 typedef struct stack_s
@@ -22,5 +23,7 @@ typedef struct instruction_s
 /* Define function prototypes */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+
+void free_stack(stack_t **stack);
 
 #endif /* MONTY_H */
