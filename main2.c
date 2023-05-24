@@ -19,6 +19,9 @@ opcode_func_t opcode_functions[] = {
 	{"pchar", pchar},
 	{"pstr", pstr},
 	{"rotl", rotl},
+	{"rotr", rotr},
+	{"stack", stack},
+	{"queue", queue},
 };
 
 /**
