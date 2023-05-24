@@ -12,6 +12,13 @@ opcode_func_t opcode_functions[] = {
 	{"add", add},
 	{"nop", nop},
 	{"sub", sub},
+	{"div", div_op},
+	{"mul", mul},
+	{"mod", mod},
+	{"#", comment},
+	{"pchar", pchar},
+	{"pstr", pstr},
+	{"rotl", rotl},
 };
 
 /**
