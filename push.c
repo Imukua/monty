@@ -11,27 +11,22 @@ void push(stack_t **stack, unsigned int line_number)
 	int value;
 	stack_t *new_node;
 
-	/* Get the argument */
 	arg = strtok(NULL, " \t\n");
 
-	/* Check if the argument is provided */
 	if (arg == NULL)
 	{
 	fprintf(stderr, "L%u: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
 	}
 
-	/* Convert the argument to an integer */
 	value = atoi(arg);
 
-	/* Check if the conversion was successful */
 	if (value == 0 && strcmp(arg, "0") != 0)
 	{
 	fprintf(stderr, "L%u: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
 	}
 
-	/* Create a new node */
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
@@ -39,16 +34,13 @@ void push(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 	}
 
-	/* Initialize the new node */
 	new_node->n = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 
-	/* Update the previous node, if any */
 	if (*stack != NULL)
 	(*stack)->prev = new_node;
 
-	/* Update the stack */
 	*stack = new_node;
 }
 
@@ -68,4 +60,22 @@ void pall(stack_t **stack, unsigned int line_number)
 	printf("%d\n", current->n);
 	current = current->next;
 	}
+}
+
+#include "monty.h"
+
+/**
+ * pint - Prints the value at the top of the stack
+ * @stack: Double pointer to the stack
+ * @line_number: Line number
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+	fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+	exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", (*stack)->n);
 }
