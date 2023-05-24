@@ -3,11 +3,12 @@
 /**
  * execute_instruction - Execute a Monty bytecode instruction
  * @opcode: The opcode to execute
- * @stack: Double pointer to the stack
+ * @stack1: Double pointer to the stack
  * @line_number: The line number of the instruction
  * Return: 0 on success, 1 on failure
  */
-int execute_instruction(char *opcode, stack_t **stack1, unsigned int line_number)
+int execute_instruction(char *opcode, stack_t **stack1,
+unsigned int line_number)
 {
 	opcode_func_t opcode_functions[] = {
 	{"push", push},
@@ -99,8 +100,8 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 	fprintf(stderr, "USAGE: monty file\n");
-	return EXIT_FAILURE;
+	return (EXIT_FAILURE);
 	}
 
-	return process_file(argv[1]);
+	return (process_file(argv[1]));
 }
