@@ -94,7 +94,24 @@ void stack(stack_t **stack, unsigned int line_number)
  */
 void queue(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
 	(void)line_number;
-	rotr(stack, line_number);
+	stack_t *current = *stack;
+	stack_t *prev = NULL;
+
+	if (current == NULL)
+		return;
+
+	/* Traverse the stack to find the last node */
+	while (current->next != NULL)
+	{
+		prev = current;
+		current = current->next;
+	}
+
+	/* Rearrange the pointers to make the last node the new top */
+	prev->next = NULL;
+	current->prev = NULL;
+	current->next = *stack;
+	(*stack)->prev = current;
+	*stack = current;
 }
