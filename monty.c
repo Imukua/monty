@@ -62,8 +62,6 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
-#include "monty.h"
-
 /**
  * pint - Prints the value at the top of the stack
  * @stack: Double pointer to the stack
