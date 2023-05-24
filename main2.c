@@ -4,10 +4,14 @@
  * opcode_functions - opcode functions
  */
 opcode_func_t opcode_functions[] = {
-    {"push", push},
-    {"pall", pall},
+	{"push", push},
+	{"pall", pall},
 	{"pint", pint},
 	{"pop", pop},
+	{"swap", swap},
+	{"add", add},
+	{"nop", nop},
+	{"sub", sub},
 };
 
 /**
