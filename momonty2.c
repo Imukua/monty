@@ -94,9 +94,10 @@ void stack(stack_t **stack, unsigned int line_number)
  */
 void queue(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *current = *stack;
 	stack_t *prev = NULL;
+	(void)line_number;
+	
 
 	if (current == NULL)
 		return;
