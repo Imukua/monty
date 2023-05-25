@@ -10,7 +10,7 @@
 int execute_instruction(char *opcode, stack_t **stack1,
 unsigned int line_number)
 {
-	opcode_func_t opcode_functions[] = {
+	instruction_t instruction_s[] = {
 	{"push", push},
 	{"pall", pall},
 	{"pint", pint},
@@ -33,11 +33,11 @@ unsigned int line_number)
 
 	size_t i;
 
-	for (i = 0; i < sizeof(opcode_functions) / sizeof(opcode_func_t); i++)
+	for (i = 0; i < sizeof(instruction_s) / sizeof(instruction_t); i++)
 	{
-	if (strcmp(opcode, opcode_functions[i].opcode) == 0)
+	if (strcmp(opcode, instruction_s[i].opcode) == 0)
 	{
-	opcode_functions[i].func(stack1, line_number);
+	instruction_s[i].f(stack1, line_number);
 	return (0);
 	}
 	}
